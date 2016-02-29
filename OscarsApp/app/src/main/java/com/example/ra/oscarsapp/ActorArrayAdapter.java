@@ -14,18 +14,18 @@ import java.util.ArrayList;
  */
 public class ActorArrayAdapter extends ArrayAdapter<ActorClass> {
 
-    ArrayList<ActorClass> mArrayList;
+    ArrayList<ActorClass> mActors;
 
-    public ActorArrayAdapter(Context context, ArrayList<ActorClass> newEmailArrayList) {
+    public ActorArrayAdapter(Context context, ArrayList<ActorClass> actors) {
         super(context, -1);
 
-        mArrayList = new ArrayList<ActorClass>();
+        mActors = actors;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ActorClass actorList = mArrayList.get(position);
+        ActorClass actorList = mActors.get(position);
 
         Context context = getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -34,7 +34,11 @@ public class ActorArrayAdapter extends ArrayAdapter<ActorClass> {
 
         TextView actorName = (TextView) actorLayoutView.findViewById(R.id.actor_name);
         TextView actorDOB = (TextView) actorLayoutView.findViewById(R.id.actor_dob);
-        TextView actorWon = (TextView) actorLayoutView.findViewById(R.id.actor_won);
+        TextView actorWon = (TextView) actorLayoutView.findViewById(R.id.oscars_won);
+
+        actorName.setText(actorList.getmName());
+        actorDOB.setText(actorList.getmDOB());
+        actorWon.setText(actorList.getmOscarsWon());
 
         return actorLayoutView;
     }
