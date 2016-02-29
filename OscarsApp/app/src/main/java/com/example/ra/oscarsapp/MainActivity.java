@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private ListView mListview;
-    private ArrayList<ActorClass> mArrayList;
+    private ArrayList<ActorClass> mActorsList;
 
 
     @Override
@@ -19,13 +19,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mListview=(ListView)findViewById(R.id.lsitView);
-        mArrayList = new ArrayList<>();
+        mActorsList = new ArrayList<>();
         ActorClass actorClass = ActorClass.getInstance();
-        mArrayList.add(new ActorClass("Leonardo DiCaprio", "11/11/74", "1"));
-        mArrayList.add(new ActorClass("Matt Damon", "10/8/70", "1"));
-        mArrayList.add(new ActorClass("Jennifer Lawrence", "08/15/90", "1"));
+        mActorsList.add(new ActorClass("Christopher Walken", "03/31/43", "Not sure"));
+        mActorsList.add(new ActorClass("Hannibal Buress", "04/04/83", "Probably none"));
+        mActorsList.add(new ActorClass("Rhea Seehorn", "1972", "Not sure, but should get many"));
 
-        ActorArrayAdapter adapter = new ActorArrayAdapter(this, mArrayList);
+        ActorArrayAdapter adapter = new ActorArrayAdapter(this, mActorsList);
         mListview.setAdapter(adapter);
     }
 }
