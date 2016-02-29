@@ -9,9 +9,8 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
-    ListView mListview;
-    ArrayAdapter<ActorClass> mAdapter;
-    ArrayList<ActorClass> mArrayList;
+    private ListView mListview;
+    private ArrayList<ActorClass> mArrayList;
 
 
     @Override
@@ -21,14 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
         mListview=(ListView)findViewById(R.id.lsitView);
         mArrayList = new ArrayList<>();
-        mAdapter = new ActorArrayAdapter(this, mArrayList);
-        mListview.setAdapter(mAdapter);
-
         ActorClass actorClass = ActorClass.getInstance();
-
         mArrayList.add(new ActorClass("Leonardo DiCaprio", "11/11/74", "1"));
         mArrayList.add(new ActorClass("Matt Damon", "10/8/70", "1"));
         mArrayList.add(new ActorClass("Jennifer Lawrence", "08/15/90", "1"));
 
+        ActorArrayAdapter adapter = new ActorArrayAdapter(this, mArrayList);
+        mListview.setAdapter(adapter);
     }
 }

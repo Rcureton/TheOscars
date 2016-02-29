@@ -45,6 +45,6 @@ public class ActorArrayAdapter extends ArrayAdapter<ActorClass> {
 
     @Override
     public int getCount() {
-        return super.getCount();
+        return mActors.size();
     }
 }
